@@ -9,6 +9,7 @@ extern "C" {
 #include "../go-zetasql/parser/parser/bridge_extern.h"
 #include "../go-zetasql/public/analyzer/bridge_extern.h"
 #include "../go-zetasql/public/catalog/bridge_extern.h"
+#include "../go-zetasql/public/error_helpers/bridge_extern.h"
 #include "../go-zetasql/public/simple_catalog/bridge_extern.h"
 #include "../go-zetasql/public/sql_formatter/bridge_extern.h"
 

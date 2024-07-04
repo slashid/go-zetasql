@@ -26190,6 +26190,17 @@ func zetasql_GoTable_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	C.export_zetasql_GoTable_new(arg0, arg1)
 }
 
+func FormatError(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_FormatError(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FormatError(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_FormatError(arg0, arg1)
+}
+
 func Type_Kind(arg0 unsafe.Pointer, arg1 *int) {
 	zetasql_Type_Kind(
 		arg0,

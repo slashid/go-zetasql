@@ -4740,6 +4740,14 @@
       ret:
         - struct
 
+- package: zetasql/public/error_helpers
+  methods:
+    - name: FormatError
+      args:
+        - struct
+      ret:
+        - string
+
 - package: zetasql/public/simple_catalog
   methods:
     - name: Type_Kind

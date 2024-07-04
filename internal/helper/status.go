@@ -3,9 +3,10 @@ package helper
 import "C"
 import (
 	"errors"
+	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql"
 	"unsafe"
 
-	internal "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/parser/parser"
+	internalErrorHelpers "github.com/goccy/go-zetasql/internal/ccall/go-zetasql/public/error_helpers"
 )
 
 type Status struct {
@@ -20,7 +21,7 @@ func (s *Status) OK() bool {
 
 func (s *Status) String() string {
 	var v unsafe.Pointer
-	internal.Status_String(s.raw, &v)
+	internalErrorHelpers.FormatError(s.raw, &v)
 	return C.GoString((*C.char)(v))
 }
 

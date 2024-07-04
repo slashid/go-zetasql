@@ -32,12 +32,9 @@ package zetasql
 */
 import "C"
 import (
-	"unsafe"
-
 	_ "github.com/goccy/go-zetasql/internal/ccall/go-absl/time/go_internal/cctz/time_zone"
+	"unsafe"
 )
-
-var _ int
 
 func cctz_FixedOffsetFromName(arg0 unsafe.Pointer, arg1 unsafe.Pointer, arg2 *bool) {
 	zetasql_cctz_FixedOffsetFromName(
@@ -26188,6 +26185,17 @@ func GoTable_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 
 func zetasql_GoTable_new(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
 	C.export_zetasql_GoTable_new(arg0, arg1)
+}
+
+func FormatError(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	zetasql_FormatError(
+		arg0,
+		arg1,
+	)
+}
+
+func zetasql_FormatError(arg0 unsafe.Pointer, arg1 *unsafe.Pointer) {
+	C.export_zetasql_FormatError(arg0, arg1)
 }
 
 func Type_Kind(arg0 unsafe.Pointer, arg1 *int) {

@@ -94,6 +94,26 @@ func TestAnalyzer(t *testing.T) {
 	}
 }
 
+func TestAnalyzerErrors(t *testing.T) {
+	catalog := types.NewSimpleCatalog("z_catalog")
+
+	_, err := zetasql.AnalyzeStatement("SELECT2 * FROM z_catalog", catalog, nil)
+	if err == nil {
+		t.Fatal("Expected error")
+	}
+	if err.Error() != `Syntax error: Unexpected identifier "SELECT2" [at 1:1]` {
+		t.Fatalf("Expected error, it was: %s", err.Error())
+	}
+
+	_, err = zetasql.AnalyzeStatement("SELECT * FROM_WRONG z_catalog", catalog, nil)
+	if err == nil {
+		t.Fatal("Expected error")
+	}
+	if err.Error() != `Syntax error: Expected end of input but got identifier "FROM_WRONG" [at 1:10]` {
+		t.Fatalf("Expected error, it was: %s", err.Error())
+	}
+}
+
 func TestAnalyzeMultiStatements(t *testing.T) {
 	const tableName = "table"
 	catalog := types.NewSimpleCatalog("catalog")
